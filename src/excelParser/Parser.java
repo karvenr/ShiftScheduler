@@ -32,9 +32,9 @@ public class Parser{
 				Worker inshop = null;
 				if(avail[0].equals("In Shops")){
 					isInShop = true;
-				}else if(avail[0].equals("Drivers")){
+				}else if(avail[0].equals("Drivers") ){
 					isInShop = false;
-				}else if(!avail[0].equals(null)){
+				}else if(!avail[0].equals("") && !avail[0].equals("Availability")){
 					availObj.setMonday(avail[1]);
 					availObj.setTuesday(avail[2]);
 					availObj.setWednesday(avail[3]);
@@ -42,15 +42,16 @@ public class Parser{
 					availObj.setFriday(avail[5]);
 					availObj.setSaturday(avail[6]);
 					availObj.setSunday(avail[7]);
+					if(isInShop = true){
+						inshop = new Worker(avail[0], true, false, availObj);
+					}
+					else if(isInShop = false){
+						inshop = new Worker(avail[0], false, true, availObj);
+					}
 				}
 				
-				if(isInShop = true){
-					inshop = new Worker(avail[0], true, false, availObj);
-				}
-				if(isInShop = false){
-					inshop = new Worker(avail[0], false, true, availObj);
-				}
-				System.out.println(inshop.getName());
+				
+				System.out.println(avail[0]);
 			}
 		}
 			
@@ -61,7 +62,7 @@ public class Parser{
 				e.printStackTrace();
 			}
 			catch (Exception e){
-				e.getMessage();
+				System.out.println(e.getMessage());
 			}
 			finally {
 				if (br != null){
