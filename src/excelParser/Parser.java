@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.Vector;
 
-public class Parser extends Worker {
+public class Parser{
 	public static void main (String[] args){
 		Parser obj = new Parser();
 		obj.read();
@@ -32,16 +32,9 @@ public class Parser extends Worker {
 				Worker inshop = null;
 				if(avail[0].equals("In Shops")){
 					isInShop = true;
-					availObj.setMonday(avail[1]);
-					availObj.setTuesday(avail[2]);
-					availObj.setWednesday(avail[3]);
-					availObj.setThursday(avail[4]);
-					availObj.setFriday(avail[5]);
-					availObj.setSaturday(avail[6]);
-					availObj.setSunday(avail[7]);
-				}
-				if(avail[0].equals("Drivers")){
+				}else if(avail[0].equals("Drivers")){
 					isInShop = false;
+				}else if(!avail[0].equals(null)){
 					availObj.setMonday(avail[1]);
 					availObj.setTuesday(avail[2]);
 					availObj.setWednesday(avail[3]);
@@ -57,7 +50,7 @@ public class Parser extends Worker {
 				if(isInShop = false){
 					inshop = new Worker(avail[0], false, true, availObj);
 				}
-				
+				System.out.println(inshop.getName());
 			}
 		}
 			
