@@ -16,7 +16,7 @@ public class Parser{
 	}
 	
 	public void read(){
-		String csvFile = "/Users/Karven/Documents/WorkerAvailabilityCSV.csv";
+		String csvFile = "../../WorkerAvailabilityCSV.csv";
 		
 		BufferedReader br = null;
 		String line = "";
