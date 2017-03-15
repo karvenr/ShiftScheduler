@@ -3,11 +3,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.util.Vector;
 
 public class Parser{
 	public static void main (String[] args){
@@ -16,7 +11,7 @@ public class Parser{
 	}
 	
 	public void read(){
-		String csvFile = "../../WorkerAvailabilityCSV.csv";
+		String csvFile = "WorkerAvailabilityCSV.csv";
 		
 		BufferedReader br = null;
 		String line = "";
@@ -28,6 +23,7 @@ public class Parser{
 			
 			while((line = br.readLine()) != null){
 				String avail[] = line.split(csvSplitBy, -1);
+				
 				Availability availObj = new Availability();
 				Worker inshop = null;
 				if(avail[0].equals("In Shops")){
@@ -35,6 +31,7 @@ public class Parser{
 				}else if(avail[0].equals("Drivers") ){
 					isInShop = false;
 				}else if(!avail[0].equals("") && !avail[0].equals("Availability")){
+					
 					availObj.setMonday(avail[1]);
 					availObj.setTuesday(avail[2]);
 					availObj.setWednesday(avail[3]);
@@ -42,24 +39,25 @@ public class Parser{
 					availObj.setFriday(avail[5]);
 					availObj.setSaturday(avail[6]);
 					availObj.setSunday(avail[7]);
-					if(isInShop = true){
+					if(isInShop == true){
 						inshop = new Worker(avail[0], true, false, availObj);
 					}
-					else if(isInShop = false){
+					else if(isInShop == false){
 						inshop = new Worker(avail[0], false, true, availObj);
 					}
+					
 				}
 				
 				
-				System.out.println(avail[0]);
+				
 			}
 		}
 			
 			catch (FileNotFoundException e){
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 			catch (IOException e){
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 			catch (Exception e){
 				System.out.println(e.getMessage());

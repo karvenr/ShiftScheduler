@@ -21,17 +21,17 @@ public class Availability {
 			}else if(valAm < 12 && valAm > 0){
 				indexval1 = valAm;
 			}else{ //If the first time is invalid
-				throw new Exception("Invalid time " + times[0]);
+				throw new Exception("Invalid time 1 " + times[0]);
 			}
 		}else if(times[0].contains("pm")){
 			int valPm = Integer.valueOf(times[0].substring(0, times[0].indexOf("pm"))); //Value if its pm
 			if(valPm < 12 && valPm > 0){
 				indexval1 = valPm + 12;
 			}else{ //if the first time is invalid
-				throw new Exception("Invalid time " + times[0]);
+				throw new Exception("Invalid time 2 " + times[0]);
 			}
 		}else{
-			throw new Exception("Invalid time " + times[0]);
+			throw new Exception("Invalid time 3 " + times[0]);
 		}
 		
 		//Time available until
@@ -42,17 +42,17 @@ public class Availability {
 			}else if(valAm < 12 && valAm > 0){
 				indexval2 = valAm;
 			}else{
-				throw new Exception("Invalid time " + times[1]);
+				throw new Exception("Invalid time 4 " + times[1]);
 			}
-		}else if(times[0].contains("pm")){
+		}else if(times[1].contains("pm")){
 			int valPm = Integer.valueOf(times[1].substring(0, times[1].indexOf("pm"))); //Value if its pm
 			if(valPm < 12 && valPm > 0){
 				indexval2 = valPm + 12;
 			}else{
-				throw new Exception("Invalid time " + times[1]);
+				throw new Exception("Invalid time 5" + times[1]);
 			}
 		}else{
-			throw new Exception("Invalid time " + times[0]);
+			throw new Exception("Invalid time 6 " + times[1]);
 		}
 		
 		//If the interval for available hours is negative 
